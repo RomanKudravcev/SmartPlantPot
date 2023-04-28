@@ -1,6 +1,5 @@
 //wrong sensor
 //will be replaced
-
 int checkWaterLevel(){
     int val;
   	digitalWrite(waterLevelSensorPower, HIGH);	// Turn the sensor ON
@@ -8,4 +7,10 @@ int checkWaterLevel(){
 	val = analogRead(waterLevelSensor);         // Read the analog value form sensor
 	digitalWrite(waterLevelSensorPower, LOW);	// Turn the sensor OFF
 	return val;							        // send current reading
+}
+
+//wrong sensor
+//will be replaced
+int checkMoisture(){
+	return analogRead(moistureSensor);         // send current reading
 }
