@@ -1,4 +1,5 @@
 //define pins
+#define light 12
 #define waterLevelSensor 14
 #define waterLevelSensorPower 27
 #define moistureSensor 26
@@ -19,6 +20,7 @@ void setup() {
   pinMode(moistureSensor, INPUT);
 
   pinMode(waterLevelSensorPower, OUTPUT);
+  pinMode(light, OUTPUT);
 
   //deactivate all sensors at the beginning
   digitalWrite(waterLevelSensorPower, LOW);
