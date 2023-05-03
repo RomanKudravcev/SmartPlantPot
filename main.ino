@@ -9,6 +9,7 @@ int moisture;
 
 //include files
 #include "waterlevel.h"
+#include "webserver.h"
 
 void setup() {
   //setup pins and serial output
@@ -22,6 +23,7 @@ void setup() {
   //deactivate all sensors at the beginning
   digitalWrite(waterLevelSensorPower, LOW);
 
+  setupWebserver();
 }
 
 void loop() {
