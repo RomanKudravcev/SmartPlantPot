@@ -6,7 +6,7 @@ int moisture;
 boolean lightOn = false;
 
 //include files
-#include "waterlevel.h"
+#include "sensor.h"
 #include "webserver.h"
 
 void setup() {
