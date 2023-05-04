@@ -1,5 +1,6 @@
 //define pins
 #define light 25
+#define pump 26
 #define waterLevelSensor 34
 #define moistureSensor 35
 

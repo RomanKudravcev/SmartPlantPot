@@ -1,9 +1,11 @@
 #include "properties.h"
 
-//local variables
+//global variables
 int waterLevel;
 int moisture;
 boolean lightOn = false;
+long lastPumpTime = millis();
+const long pumpCooldownPeriod = 5 * 60 * 1000; // 5 minutes in milliseconds
 
 //include files
 #include "sensor.h"
@@ -18,16 +20,17 @@ void setup() {
 
   //pinMode(waterLevelSensorPower, OUTPUT);
   pinMode(light, OUTPUT);
+  pinMode(pump, OUTPUT);
 
   //deactivate all sensors at the beginning
   digitalWrite(light, LOW);
+  digitalWrite(pump, LOW);
 
   setupWebserver();
 }
 
 void loop() {
-  waterLevel = checkWaterLevel();
-  moisture = checkMoisture();
+  checkPump();
 
   Serial.print("Water level: ");
   Serial.println(waterLevel);
