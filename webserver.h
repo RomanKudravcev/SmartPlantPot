@@ -2,13 +2,7 @@
 #include <WiFi.h>
 #include <AsyncTCP.h>
 #include <ESPAsyncWebSrv.h>
-
-// Replace with your network credentials
-const char* ssid = "WITZ!Box";
-const char* password = "Tannenbaum38104";
-
-const char* PARAM_INPUT_1 = "output";
-const char* PARAM_INPUT_2 = "state";
+#include <ArduinoJson.h>
 
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
@@ -30,6 +24,27 @@ void setupWebserver(){
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send_P(200, "text/html", index_html);
   });
+
+  server.on("/update", HTTP_GET, [](AsyncWebServerRequest *request){
+    if(request->hasParam("light")){switchLight();}
+  });
+
+  server.on("/getSensorData", HTTP_GET, [](AsyncWebServerRequest *request){
+
+    // create JSON object
+    DynamicJsonDocument json(1024);
+    json["waterLevel"] = waterLevel;
+    json["moisture"] = moisture;
+
+    // serialize JSON object
+    String jsonStr;
+    serializeJson(json, jsonStr);
+
+    // send JSON object as response
+    AsyncWebServerResponse *response = request->beginResponse(200, "application/json", jsonStr);
+    response->addHeader("Access-Control-Allow-Origin", "*");
+    request->send(response);
+});
 
   // Start server
   server.begin();

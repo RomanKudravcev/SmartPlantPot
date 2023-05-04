@@ -1,12 +1,9 @@
-//define pins
-#define light 12
-#define waterLevelSensor 14
-#define waterLevelSensorPower 27
-#define moistureSensor 26
+#include "properties.h"
 
 //local variables
 int waterLevel;
 int moisture;
+boolean lightOn = false;
 
 //include files
 #include "waterlevel.h"
@@ -19,11 +16,11 @@ void setup() {
   pinMode(waterLevelSensor, INPUT);
   pinMode(moistureSensor, INPUT);
 
-  pinMode(waterLevelSensorPower, OUTPUT);
+  //pinMode(waterLevelSensorPower, OUTPUT);
   pinMode(light, OUTPUT);
 
   //deactivate all sensors at the beginning
-  digitalWrite(waterLevelSensorPower, LOW);
+  digitalWrite(light, LOW);
 
   setupWebserver();
 }
