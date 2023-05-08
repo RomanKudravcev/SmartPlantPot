@@ -1,8 +1,10 @@
+//include libraries
+#include <Wire.h>
+
 //define pins
-#define light 34
-#define pump 35
-#define waterLevelSensor 34
-#define moistureSensor 35
+#define light 26
+#define pump 32
+#define moistureSensor 33 
 
 // Replace with your network credentials
 const char* ssid = "WITZ!Box";

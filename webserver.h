@@ -33,7 +33,7 @@ void setupWebserver(){
 
     // create JSON object
     DynamicJsonDocument json(1024);
-    json["waterLevel"] = ((float)waterLevel/600)*100;
+    json["waterLevel"] = waterLevel;
     json["moisture"] = (1 - ((float)(moisture - 2000) / (4095 - 2000))) * 100;
     json["light"] = lightOn;
 
