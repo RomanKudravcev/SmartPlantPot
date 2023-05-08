@@ -1,9 +1,9 @@
 //define pins
-#define light 25
-#define pump 26
+#define light 34
+#define pump 35
 #define waterLevelSensor 34
 #define moistureSensor 35
 
 // Replace with your network credentials
-const char* ssid = "iPhone von Roman";
-const char* password = "test1234";
+const char* ssid = "WITZ!Box";
+const char* password = "Tannenbaum38104";

@@ -33,8 +33,9 @@ void setupWebserver(){
 
     // create JSON object
     DynamicJsonDocument json(1024);
-    json["waterLevel"] = waterLevel;
-    json["moisture"] = moisture;
+    json["waterLevel"] = ((float)waterLevel/600)*100;
+    json["moisture"] = (1 - ((float)(moisture - 2000) / (4095 - 2000))) * 100;
+    json["light"] = lightOn;
 
     // serialize JSON object
     String jsonStr;
