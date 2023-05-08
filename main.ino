@@ -31,12 +31,15 @@ void setup() {
 
 void loop() {
   checkPump();
-
+  Serial.println("--------------------------");
   Serial.print("Water level: ");
-  Serial.println(waterLevel);
-
+  Serial.print(waterLevel);
+  Serial.println("%");
+  
   Serial.print("Moisture: ");
-  Serial.println(moisture);
+  Serial.print(moisture);
+  Serial.println("%");
+  Serial.println("--------------------------");
 
   delay(2000);
 }

@@ -76,7 +76,7 @@ int checkWaterLevel(){
 //wrong sensor
 //will be replaced
 int checkMoisture(){
-	return analogRead(moistureSensor);		// send current reading
+	return (int)((1 - ((float)(analogRead(moistureSensor) - 2000) / (4095 - 2000))) * 100);	// send current reading
 }
 
 void switchLight(){

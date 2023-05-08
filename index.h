@@ -126,19 +126,18 @@ const char index_html[] PROGMEM = R"=====(
 
       <!-- Content wrapper start -->
       <div class="content-wrapper">
-        <div class="content">
+        <div class="content" style="padding-top:50px">
           <h2 class="content-title">Waterlevel</h2>
           <div class="progress-group">
             <img
               width="40em"
               src="https://img.icons8.com/color/96/000000/water.png"
             />
-            <div class="progress">
+            <div class="progress h-25">
               <div
                 class="progress-bar"
                 id="bar-waterlevel"
                 role="progressbar"
-                style="width: 0%"
                 aria-valuenow="100"
                 aria-valuemin="0"
                 aria-valuemax="100"
@@ -150,20 +149,19 @@ const char index_html[] PROGMEM = R"=====(
           </div>
         </div>
 
-        <div class="content">
+        <div class="content" style="padding-top:50px">
           <h2 class="content-title">Moisture</h2>
           <div class="progress-group">
             <img
               width="40em"
               src="https://img.icons8.com/plasticine/100/000000/potted-plant.png"
             />
-            <div class="progress">
+            <div class="progress h-25">
               <div
                 class="progress-bar"
                 id="bar-moisture"
                 role="progressbar"
-                style="width: 0%"
-                aria-valuenow="20"
+                aria-valuenow="100"
                 aria-valuemin="0"
                 aria-valuemax="100"
               ></div>
@@ -174,7 +172,7 @@ const char index_html[] PROGMEM = R"=====(
           </div>
         </div>
 
-        <div class="content d-flex align-items-center justify-content-center">
+        <div class="content d-flex align-items-center justify-content-center" style="padding-top:80px">
           <button
             class="btn d-flex flex-column align-items-center justify-content-center"
             onclick="updateLight()"
