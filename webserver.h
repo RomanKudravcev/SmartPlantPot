@@ -1,8 +1,9 @@
 // Import required libraries
 #include <WiFi.h>
 #include <AsyncTCP.h>
-#include <ESPAsyncWebSrv.h>
 #include <ArduinoJson.h>
+#include <ESPAsyncWebServer.h>
+#include <AsyncElegantOTA.h>
 
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
@@ -11,6 +12,7 @@ AsyncWebServer server(80);
 
 void setupWebserver(){
   // Connect to Wi-Fi
+  WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(1000);
@@ -25,7 +27,7 @@ void setupWebserver(){
     request->send_P(200, "text/html", index_html);
   });
 
-  server.on("/update", HTTP_GET, [](AsyncWebServerRequest *request){
+  server.on("/updateLight", HTTP_GET, [](AsyncWebServerRequest *request){
     if(request->hasParam("light")){switchLight();}
   });
 
@@ -48,5 +50,6 @@ void setupWebserver(){
 });
 
   // Start server
+  AsyncElegantOTA.begin(&server);    // Start ElegantOTA
   server.begin();
 }

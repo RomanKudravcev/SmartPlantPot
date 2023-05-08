@@ -27,7 +27,7 @@ const char index_html[] PROGMEM = R"=====(
       function updateLight() {
         document.querySelector(".spinner-overlay").style.display = "flex";
         var xhr = new XMLHttpRequest();
-        var url = "/update?light";
+        var url = "/updateLight?light";
         xhr.open("GET", url);
         xhr.send();
       }
